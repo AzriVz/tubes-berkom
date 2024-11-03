@@ -1,4 +1,4 @@
-# Program Pintu Tol
+# Pintu Tol
 
 ![Language](https://img.shields.io/badge/language-Python3-green?logo=python)
 ![version](https://img.shields.io/badge/version-1.0-blue)

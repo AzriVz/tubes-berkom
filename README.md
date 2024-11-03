@@ -8,7 +8,6 @@
 - [General Information](#general-information)
 - [License](#license)
 - [Languages and Library](#languages-and-library)
-- [Setup](#setup)
 
 ## General Information
 

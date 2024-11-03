@@ -1,4 +1,4 @@
-\# Program Gerbang Tol
+# Program Gerbang Tol
 
 ![Language](https://img.shields.io/badge/language-Python3-green?logo=python)
 ![version](https://img.shields.io/badge/version-1.0-blue)

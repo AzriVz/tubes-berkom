@@ -23,10 +23,10 @@
 # main: prosedur utama untuk mengelola alur program
 
 # Algoritma
-# Daftar pintu tol yang tersedia
 import os
 import time
 
+# Daftar pintu tol yang tersedia
 pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 
 # Fungsi untuk menampilkan daftar pilihan pintu tol

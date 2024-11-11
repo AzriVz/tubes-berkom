@@ -24,6 +24,8 @@
 
 # Algoritma
 # Daftar pintu tol yang tersedia
+import time
+
 pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 
 # Fungsi untuk menampilkan daftar pilihan pintu tol
@@ -182,16 +184,30 @@ def pilih_isi_saldo(saldo_awal, biaya):
         return pilih_isi_saldo(saldo_awal, biaya)
 
 # Fungsi untuk menampilkan ringkasan transaksi
-def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif, saldo_terakhir):
-    print(f"\n--- Ringkasan Transaksi ---")
-    print(f"Pintu Masuk: {pintu[pintu_masuk - 1]}")
-    print(f"Pintu Keluar: {pintu[pintu_keluar - 1]}")
-    print(f"Golongan Kendaraan: {jenis_kendaraan}")
-    print(f"Jarak Tempuh: {jarak} km")
-    print(f"Tarif Tol: Rp {tarif}")
-    print(f"Sisa Saldo: Rp {saldo_terakhir}")
-    print("\nTransaksi berhasil. \n\nPintu tol terbuka. \n\nSelamat melanjutkan perjalanan!")
+Contoh daftar pintu tol
+pintu = ["Pintu 1", "Pintu 2", "Pintu 3", "Pintu 4"]
 
+# Fungsi untuk menampilkan ringkasan dengan jeda antar huruf
+def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif, saldo_terakhir):
+    teks_list = [
+        "\n--- Ringkasan Transaksi ---",
+        f"Pintu Masuk: {pintu[pintu_masuk - 1]}",
+        f"Pintu Keluar: {pintu[pintu_keluar - 1]}",
+        f"Golongan Kendaraan: {jenis_kendaraan}",
+        f"Jarak Tempuh: {jarak} km",
+        f"Tarif Tol: Rp {tarif}",
+        f"Sisa Saldo: Rp {saldo_terakhir}",
+        "\nTransaksi berhasil.",
+        "\nPintu tol terbuka.",
+        "\nSelamat melanjutkan perjalanan!"
+    ]
+
+    for teks in teks_list:
+        for huruf in teks:
+            print(huruf, end='', flush=True)
+            time.sleep(0.05)  # Jeda 0,05 detik antar huruf
+        print()  # Pindah ke baris berikutnya setelah satu kalimat selesai
+        
 # Fungsi utama
 def main():
     print("=== Selamat datang di Gerbang Pintu Tol ===")

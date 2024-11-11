@@ -24,6 +24,8 @@
 
 # Algoritma
 # Daftar pintu tol yang tersedia
+import time
+
 pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 
 # Fungsi untuk menampilkan daftar pilihan pintu tol
@@ -122,7 +124,8 @@ def hitung_jarak(pintu_masuk, pintu_keluar):
 
 # Fungsi untuk input jenis kendaraan
 def input_jenis_kendaraan():
-    print("\n--- Daftar Golongan Kendaraan ---")
+    print("\n===============================")
+    print("    DAFTAR GOLONGAN KENDARAAN   ")
     print("Golongan I   : Sedan, Jip, Pick Up/Truk Kecil, dan Bus")
     print("Golongan II  : Truk dengan 2 (dua) gandar")
     print("Golongan III : Truk dengan 3 (tiga) gandar")
@@ -183,15 +186,31 @@ def pilih_isi_saldo(saldo_awal, biaya):
 
 # Fungsi untuk menampilkan ringkasan transaksi
 def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif, saldo_terakhir):
-    print(f"\n--- Ringkasan Transaksi ---")
-    print(f"Pintu Masuk: {pintu[pintu_masuk - 1]}")
-    print(f"Pintu Keluar: {pintu[pintu_keluar - 1]}")
-    print(f"Golongan Kendaraan: {jenis_kendaraan}")
-    print(f"Jarak Tempuh: {jarak} km")
-    print(f"Tarif Tol: Rp {tarif}")
-    print(f"Sisa Saldo: Rp {saldo_terakhir}")
-    print("\nTransaksi berhasil. \n\nPintu tol terbuka. \n\nSelamat melanjutkan perjalanan!")
+    tampilan_ringkasan = [
+        f"""
+    ===============================
+           RINGKASAN TRANSAKSI
+    ===============================
+    Pintu Masuk     : {pintu[pintu_masuk - 1]}
+    Pintu Keluar    : {pintu[pintu_keluar - 1]}
+    Golongan Kendaraan : {jenis_kendaraan}
+    Jarak Tempuh    : {jarak} km
+    -------------------------------
+    Tarif Tol       : Rp {tarif}
+    Sisa Saldo      : Rp {saldo_terakhir}
+    ===============================
+    Terima kasih atas kunjungan Anda
+    Selamat melanjutkan perjalanan!
+    ===============================
+    """
+    ]
 
+    for teks in tampilan_ringkasan:
+        for huruf in teks:
+            print(huruf, end='', flush=True)
+            time.sleep(0.03)  # Jeda 0,05 detik antar huruf
+        print()  
+        
 # Fungsi utama
 def main():
     print("=== Selamat datang di Gerbang Pintu Tol ===")

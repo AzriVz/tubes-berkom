@@ -205,7 +205,7 @@ def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif
     Terima kasih atas kunjungan Anda
     Selamat melanjutkan perjalanan!
     ===============================
-    ""
+    """
     ]
 
     for teks in teks_list:

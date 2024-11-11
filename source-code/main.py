@@ -1,5 +1,5 @@
 # Author : Kelompok 7
-# Tanggal Pengerjaan : 3 November 2024
+# Tanggal Pengerjaan : 3-10 November 2024
 
 # Program Manajemen Sistem Pintu Tol
 # Deskripsi : Menghitung tarif tol berdasarkan jarak dan golongan kendaraan dari pintu masuk gerbang tol dan pintu keluar gerbang tol yang diinput oleh user

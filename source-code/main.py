@@ -124,8 +124,8 @@ def hitung_jarak(pintu_masuk, pintu_keluar):
 
 # Fungsi untuk input jenis kendaraan
 def input_jenis_kendaraan():
-    print("\n      ======================================================")
-    print("                     DAFTAR GOLONGAN KENDARAAN   ")
+    print("\n    ======================================================")
+    print("                   DAFTAR GOLONGAN KENDARAAN   ")
     print("    ======================================================")
     print("    Golongan I   : Sedan, Jip, Pick Up/Truk Kecil, dan Bus")
     print("    Golongan II  : Truk dengan 2 (dua) gandar")
@@ -209,7 +209,7 @@ def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif
     for teks in tampilan_ringkasan:
         for huruf in teks:
             print(huruf, end='', flush=True)
-            time.sleep(0.03)  # Jeda 0,05 detik antar huruf
+            time.sleep(0.03)  # Jeda 0,03 detik antar huruf
         print()  
         
 # Fungsi utama

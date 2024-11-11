@@ -115,8 +115,10 @@ def hitung_jarak(pintu_masuk, pintu_keluar):
             return 97.1
         elif pintu_keluar == 2:
             return 62.8
-        else:
+        elif pintu_keluar == 3:
             return 18.0
+        else: 
+            return 39.2
 
 # Fungsi untuk input jenis kendaraan
 def input_jenis_kendaraan():

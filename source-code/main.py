@@ -216,7 +216,7 @@ def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif
         
 # Fungsi utama
 def main():
-    print("    ===== Selamat datang di Gerbang Pintu Tol ===    ")
+    print("    ===== Selamat datang di Gerbang Pintu Tol =====    ")
     
     # Memilih pintu masuk tol
     pintu_masuk = pilih_pintu_masuk()

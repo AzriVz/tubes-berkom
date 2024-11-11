@@ -190,16 +190,22 @@ pintu = ["Pintu 1", "Pintu 2", "Pintu 3", "Pintu 4"]
 # Fungsi untuk menampilkan ringkasan dengan jeda antar huruf
 def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif, saldo_terakhir):
     teks_list = [
-        "\n--- Ringkasan Transaksi ---",
-        f"Pintu Masuk: {pintu[pintu_masuk - 1]}",
-        f"Pintu Keluar: {pintu[pintu_keluar - 1]}",
-        f"Golongan Kendaraan: {jenis_kendaraan}",
-        f"Jarak Tempuh: {jarak} km",
-        f"Tarif Tol: Rp {tarif}",
-        f"Sisa Saldo: Rp {saldo_terakhir}",
-        "\nTransaksi berhasil.",
-        "\nPintu tol terbuka.",
-        "\nSelamat melanjutkan perjalanan!"
+        f"""
+    ===============================
+           RINGKASAN TRANSAKSI
+    ===============================
+    Pintu Masuk     : {pintu[pintu_masuk - 1]}
+    Pintu Keluar    : {pintu[pintu_keluar - 1]}
+    Golongan Kendaraan : {jenis_kendaraan}
+    Jarak Tempuh    : {jarak} km
+    -------------------------------
+    Tarif Tol       : Rp {tarif}
+    Sisa Saldo      : Rp {saldo_terakhir}
+    ===============================
+    Terima kasih atas kunjungan Anda
+    Selamat melanjutkan perjalanan!
+    ===============================
+    ""
     ]
 
     for teks in teks_list:

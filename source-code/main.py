@@ -24,6 +24,7 @@
 
 # Algoritma
 # Daftar pintu tol yang tersedia
+import os
 import time
 
 pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
@@ -53,7 +54,7 @@ def pilih_pintu_masuk():
         return pintu_masuk
     except:
         print("    Input tidak valid. Silakan coba lagi.")
-        return pilih_pintu_masuk()
+        return pilih_pintu_masuk()  
 
 # Fungsi untuk memilih pintu keluar tol
 def pilih_pintu_keluar(pintu_masuk):
@@ -156,6 +157,7 @@ def input_saldo():
     except:
         print("    Input tidak valid. Harap masukkan angka yang benar.")
         return input_saldo()
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 # Fungsi untuk mengecek apakah saldo dari pengguna cukup
 def cek_saldo(saldo, biaya):
@@ -218,21 +220,26 @@ def main():
     
     # Memilih pintu masuk tol
     pintu_masuk = pilih_pintu_masuk()
+    os.system('cls' if os.name == 'nt' else 'clear')
     
     # Memilih pintu keluar tol
     pintu_keluar = pilih_pintu_keluar(pintu_masuk)
+    os.system('cls' if os.name == 'nt' else 'clear')
     
     # Meminta input jenis kendaraan 
     jenis_kendaraan = input_jenis_kendaraan()
+    os.system('cls' if os.name == 'nt' else 'clear')
     
     # Menghitung jarak antara pintu masuk dan keluar
     jarak = hitung_jarak(pintu_masuk, pintu_keluar)
+    os.system('cls' if os.name == 'nt' else 'clear')
     
     # Menghitung tarif berdasarkan jarak dan golongan kendaraan pengguna
     tarif = tarif_tol(jarak, jenis_kendaraan)
     
     # Input saldo e-toll pengguna
     saldo = input_saldo()
+    os.system('cls' if os.name == 'nt' else 'clear')
     
     # Cek saldo, jika saldo kurang, maka akan langsung ditawarkan opsi untuk isi ulang saldo
     if not cek_saldo(saldo, tarif):

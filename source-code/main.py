@@ -11,7 +11,7 @@
 # saldo, jarak, tarif, saldo_terakhir: float
 # exclude: integer or None
 # pilihan: prosedur untuk menampilkan daftar pintu tol yang tersedia
-# tariftol: fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
+# tarif_tol: fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
 # pilih_pintu_masuk: fungsi untuk memilih pintu masuk tol
 # pilih_pintu_keluar: fungsi untuk memilih pintu keluar tol
 # hitung_jarak: fungsi untuk menentukan jarak antara pintu masuk dan pintu keluar
@@ -30,13 +30,13 @@ pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 def pilihan(pintu1, pintu2, pintu3, pintu4, pintu5, exclude=None):
     daftar_pintu = [pintu1, pintu2, pintu3, pintu4, pintu5]
     for i, pintu in enumerate(daftar_pintu, start=1):
-        if i != exclude:  # berguna untuk menghindari menampilkan pintu yang sudah dipilih
+        if i != exclude:  # Berguna untuk menghindari menampilkan pintu yang sudah dipilih
             print(f"[{i}] {pintu}")
     print("Masukkan pilihan Anda: ", end="")
 
 # Fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
-def tariftol(jarak, gol):
-    tarif = (jarak * 500) + (gol * 1000)
+def tarif_tol(jarak, golongan):
+    tarif = (jarak * 500) + (golongan * 1000)
     return tarif
 
 # Fungsi untuk memilih pintu masuk tol
@@ -143,7 +143,7 @@ def input_jenis_kendaraan():
 # Fungsi untuk input saldo
 def input_saldo():
     try:
-        saldo = int(input("Masukkan saldo e-toll Anda: "))
+        saldo = int(input("Silahkan input saldo e-toll Anda: "))
         if saldo >= 0:
             return saldo
         else:
@@ -194,7 +194,7 @@ def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif
 
 # Fungsi utama
 def main():
-    print("=== Selamat datang di Sistem Pintu Tol ===")
+    print("=== Selamat datang di Gerbang Pintu Tol ===")
     
     # Memilih pintu masuk tol
     pintu_masuk = pilih_pintu_masuk()
@@ -209,7 +209,7 @@ def main():
     jarak = hitung_jarak(pintu_masuk, pintu_keluar)
     
     # Menghitung tarif berdasarkan jarak dan golongan kendaraan pengguna
-    tarif = tariftol(jarak, jenis_kendaraan)
+    tarif = tarif_tol(jarak, jenis_kendaraan)
     
     # Input saldo e-toll pengguna
     saldo = input_saldo()

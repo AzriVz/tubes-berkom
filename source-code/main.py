@@ -26,32 +26,29 @@
 # Daftar pintu tol yang tersedia
 import time
 
-pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
+# Daftar pintu tol sebagai contoh
+pintu = ["Pintu 1", "Pintu 2", "Pintu 3", "Pintu 4", "Pintu 5"]
 
-# Fungsi untuk menampilkan daftar pilihan pintu tol
-def pilihan(pintu1, pintu2, pintu3, pintu4, pintu5, exclude=None):
-    daftar_pintu = [pintu1, pintu2, pintu3, pintu4, pintu5]
-    for i, pintu in enumerate(daftar_pintu, start=1):
-        if i != exclude:  # Berguna untuk menghindari menampilkan pintu yang sudah dipilih
-            print(f"[{i}] {pintu}")
-    print("Masukkan pilihan Anda: ", end="")
-
-# Fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
-def tarif_tol(jarak, golongan):
-    tarif = (jarak * 500) + (golongan * 1000)
-    return tarif
+# Fungsi untuk menampilkan pilihan pintu tol dengan format struk
+def pilihan(*pintu, exclude=None):
+    print("\n===============================")
+    for i, nama_pintu in enumerate(pintu, start=1):
+        if exclude and i == exclude:
+            continue  # Skip pilihan jika sama dengan pintu masuk
+        print(f"{i}. {nama_pintu}")
+    print("===============================")
 
 # Fungsi untuk memilih pintu masuk tol
 def pilih_pintu_masuk():
     print("Silakan Pilih Pintu Masuk Tol:")
     pilihan(*pintu)
     try:
-        pintu_masuk = int(input())
+        pintu_masuk = int(input("Masukkan angka pilihan: "))
         while pintu_masuk < 1 or pintu_masuk > 5:
             print("Silakan input angka antara 1 sampai 5.")
-            pintu_masuk = int(input("Masukkan pilihan: "))
+            pintu_masuk = int(input("Masukkan angka pilihan: "))
         return pintu_masuk
-    except:
+    except ValueError:
         print("Input tidak valid. Silakan coba lagi.")
         return pilih_pintu_masuk()
 
@@ -60,7 +57,7 @@ def pilih_pintu_keluar(pintu_masuk):
     print("\nSilakan Pilih Pintu Keluar Tol:")
     pilihan(*pintu, exclude=pintu_masuk)  # Tidak menampilkan pintu yang sama dengan pintu masuk
     try:
-        pintu_keluar = int(input())
+        pintu_keluar = int(input("Masukkan angka pilihan: "))
         
         # Validasi agar pintu keluar tidak sama dengan pintu masuk
         while pintu_keluar < 1 or pintu_keluar > 5 or pintu_keluar == pintu_masuk:
@@ -68,11 +65,17 @@ def pilih_pintu_keluar(pintu_masuk):
                 print(f"Pilih pintu keluar tol selain pintu {pintu[pintu_masuk - 1]}.")
             else:
                 print("Silakan input angka antara 1 sampai 5.")
-            pintu_keluar = int(input("Tuliskan angka pilihan Anda: "))
+            pintu_keluar = int(input("Masukkan angka pilihan: "))
         return pintu_keluar
-    except:
+    except ValueError:
         print("Input tidak valid. Silakan coba lagi.")
         return pilih_pintu_keluar(pintu_masuk)
+
+# Contoh pemanggilan fungsi
+pintu_masuk = pilih_pintu_masuk()
+pintu_keluar = pilih_pintu_keluar(pintu_masuk)
+
+print(f"\nAnda memilih Pintu Masuk: {pintu[pintu_masuk - 1]} dan Pintu Keluar: {pintu[pintu_keluar - 1]}")
 
 # Fungsi untuk menentukan jarak antara pintu masuk dan keluar
 def hitung_jarak(pintu_masuk, pintu_keluar):

@@ -126,11 +126,14 @@ def hitung_jarak(pintu_masuk, pintu_keluar):
 def input_jenis_kendaraan():
     print("\n===============================")
     print("    DAFTAR GOLONGAN KENDARAAN   ")
+    print("===============================")
     print("Golongan I   : Sedan, Jip, Pick Up/Truk Kecil, dan Bus")
     print("Golongan II  : Truk dengan 2 (dua) gandar")
     print("Golongan III : Truk dengan 3 (tiga) gandar")
     print("Golongan IV  : Truk dengan 4 (empat) gandar")
     print("Golongan V   : Truk dengan 5 (lima) gandar")
+    print("===============================")
+    
     while True:  # Loop untuk memastikan input valid
         try:
             jenis = int(input("Masukkan jenis kendaraan Anda (1/2/3/4/5): "))
@@ -140,8 +143,6 @@ def input_jenis_kendaraan():
                 print("Golongan kendaraan harus antara 1 dan 5. Silakan pilih ulang.")
         except ValueError:
             print("Input tidak valid. Harap masukkan angka yang sesuai daftar.")
-
-
 
 # Fungsi untuk input saldo
 def input_saldo():

@@ -27,7 +27,7 @@
 import time
 
 # Daftar pintu tol sebagai contoh
-pintu = ["Pintu 1", "Pintu 2", "Pintu 3", "Pintu 4", "Pintu 5"]
+intu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 
 # Fungsi untuk menampilkan pilihan pintu tol dengan format struk
 def pilihan(*pintu, exclude=None):
@@ -44,7 +44,7 @@ def pilih_pintu_masuk():
     pilihan(*pintu)
     try:
         pintu_masuk = int(input("Masukkan angka pilihan: "))
-        while pintu_masuk < 1 or pintu_masuk > 5:
+        while pintu_masuk < 1 or pintu_masuk > len(pintu):
             print("Silakan input angka antara 1 sampai 5.")
             pintu_masuk = int(input("Masukkan angka pilihan: "))
         return pintu_masuk
@@ -60,7 +60,7 @@ def pilih_pintu_keluar(pintu_masuk):
         pintu_keluar = int(input("Masukkan angka pilihan: "))
         
         # Validasi agar pintu keluar tidak sama dengan pintu masuk
-        while pintu_keluar < 1 or pintu_keluar > 5 or pintu_keluar == pintu_masuk:
+        while pintu_keluar < 1 or pintu_keluar > len(pintu) or pintu_keluar == pintu_masuk:
             if pintu_keluar == pintu_masuk:
                 print(f"Pilih pintu keluar tol selain pintu {pintu[pintu_masuk - 1]}.")
             else:
@@ -71,6 +71,11 @@ def pilih_pintu_keluar(pintu_masuk):
         print("Input tidak valid. Silakan coba lagi.")
         return pilih_pintu_keluar(pintu_masuk)
 
+# Contoh pemanggilan fungsi
+pintu_masuk = pilih_pintu_masuk()
+pintu_keluar = pilih_pintu_keluar(pintu_masuk)
+
+print(f"\nAnda memilih Pintu Masuk: {pintu[pintu_masuk - 1]} dan Pintu Keluar: {pintu[pintu_keluar - 1]}")
 # Contoh pemanggilan fungsi
 pintu_masuk = pilih_pintu_masuk()
 pintu_keluar = pilih_pintu_keluar(pintu_masuk)

@@ -141,8 +141,7 @@ def input_jenis_kendaraan():
             if 1 <= jenis <= 5:
                 return jenis
             else:
-                print("    Mohon maaf anda tidak dapat lewat melalui jalur ini")
-                break
+                print("   Golongan kendaraan harus antara 1 dan 5. Silakan pilih ulang.")
         except ValueError:
             print("    Input tidak valid. Harap masukkan angka yang sesuai daftar.")
 

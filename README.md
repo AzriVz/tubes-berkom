@@ -27,7 +27,7 @@ Proyek ini dirancang untuk memenuhi Tugas Besar 1 Mata Kuliah WI1102 Berpikir Ko
 
 The project created with:
 
-- Python 3.11.5
+- Python 3.9
 
 Library:
 

@@ -1,7 +1,7 @@
 # Author : Kelompok 7
 # Tanggal Pengerjaan : 3-10 November 2024
 
-# Program Manajemen Sistem Pintu Tol
+# Program Manajemen Sistem Pintu Tol Lanjutan
 # Deskripsi : Menghitung tarif tol berdasarkan jarak dan golongan kendaraan dari pintu masuk gerbang tol dan pintu keluar gerbang tol yang diinput oleh user
 
 # KAMUS
@@ -21,6 +21,11 @@
 # pilih_isi_saldo: prosedur untuk menampilkan opsi isi ulang saldo dan memproses input pengguna
 # tampilkan_ringkasan: prosedur untuk menampilkan ringkasan transaksi
 # main: prosedur utama untuk mengelola alur program
+
+# Perubahan yang akan dilakukan
+# - Menambah database agar kode bisa jadi lebih singkat dan cakupan data yang diperoleh jauh lebih luas
+# - Perbaikan alur logika algoritma
+# - Memperbarui alur flowchart dan pseudocode
 
 # Algoritma
 import os

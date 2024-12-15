@@ -35,8 +35,6 @@ import time
 # Daftar pintu tol yang tersedia
 pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 
-
-
 # Fungsi untuk menampilkan daftar pilihan pintu tol
 def pilihan(pintu1, pintu2, pintu3, pintu4, pintu5, exclude=None):
     daftar_pintu = [pintu1, pintu2, pintu3, pintu4, pintu5]

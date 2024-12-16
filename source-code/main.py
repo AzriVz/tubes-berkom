@@ -1,29 +1,34 @@
 # Author : Kelompok 7
-# Tanggal Pengerjaan : 3-10 November 2024
+# Tanggal Pengerjaan : - Tugas Besar 1 (3-10 November 2024)
+#                      - Tugas Besar 2 (7-16 Desember 2024)
 
 # Program Manajemen Sistem Pintu Tol Lanjutan
 # Deskripsi : Menghitung tarif tol berdasarkan jarak dan golongan kendaraan dari pintu masuk gerbang tol dan pintu keluar gerbang tol yang diinput oleh user
 
 # KAMUS
 # pintu: array of string
-# jenis_kendaraan, pintu_masuk, pintu_keluar, pilihan, saldo_awal, biaya: integer
-# daftar_pintu, opsi_saldo: array of integer
-# saldo, jarak, tarif, saldo_terakhir: float
+# jenisKendaraan, pintuMasuk, pintuKeluar, pilihan, saldoAwal, biaya: integer
+# daftarPintu, opsi_saldo: array of integer
+# saldo, jarak, tarif, saldoTerakhir: float
 # exclude: integer or None
+# poin: integer
 # pilihan: prosedur untuk menampilkan daftar pintu tol yang tersedia
-# tarif_tol: fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
-# pilih_pintu_masuk: fungsi untuk memilih pintu masuk tol
-# pilih_pintu_keluar: fungsi untuk memilih pintu keluar tol
-# hitung_jarak: fungsi untuk menentukan jarak antara pintu masuk dan pintu keluar
-# input_jenis_kendaraan: fungsi untuk memasukkan jenis kendaraan
-# input_saldo: fungsi untuk memasukkan saldo e-toll
-# cek_saldo: fungsi untuk mengecek apakah saldo mencukupi
-# pilih_isi_saldo: prosedur untuk menampilkan opsi isi ulang saldo dan memproses input pengguna
-# tampilkan_ringkasan: prosedur untuk menampilkan ringkasan transaksi
+# tarifTol: fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
+# pilihPintuMasuk: fungsi untuk memilih pintu masuk tol
+# pilihPintuKeluar: fungsi untuk memilih pintu keluar tol
+# hitungJarak: fungsi untuk menentukan jarak antara pintu masuk dan pintu keluar
+# inputJenisKendaraan: fungsi untuk memasukkan jenis kendaraan
+# inputSaldo: fungsi untuk memasukkan saldo e-toll
+# cekSaldo: fungsi untuk mengecek apakah saldo mencukupi
+# pilihanSaldo: prosedur untuk menampilkan opsi isi ulang saldo dan memproses input pengguna
+# hitungPoin: fungsi untuk menghitung poin berdasarkan tarif transaksi
+# poinDiskon: fungsi untuk memberikan opsi penukaran poin untuk diskon tarif tol
+# simulasiWaktuTempuh: fungsi untuk mensimulasikan waktu tempuh kendaraan berdasarkan jarak dan jenis kendaraan
+# tampilkanRingkasan: prosedur untuk menampilkan ringkasan transaksi
 # main: prosedur utama untuk mengelola alur program
 
-# Perubahan yang dilakukan
 
+# Perubahan yang dilakukan
 # - Perbaikan alur logika algoritma
 # - Menambah simulasi waktu tempuh kendaraan
 # - Menambah fitur poin 
@@ -37,100 +42,100 @@ pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
 
 # Fungsi untuk menampilkan daftar pilihan pintu tol
 def pilihan(pintu1, pintu2, pintu3, pintu4, pintu5, exclude=None):
-    daftar_pintu = [pintu1, pintu2, pintu3, pintu4, pintu5]
-    for i, pintu in enumerate(daftar_pintu, start=1):
+    daftarPintu = [pintu1, pintu2, pintu3, pintu4, pintu5]
+    for i, pintu in enumerate(daftarPintu, start=1):
         if i != exclude:  # Berguna untuk menghindari menampilkan pintu yang sudah dipilih
             print(f"    [{i}] {pintu}")
     print("    Masukkan pilihan Anda: ", end="")
 
 # Fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
-def tarif_tol(jarak, golongan):
+def tarifTol(jarak, golongan):
     tarif = (jarak * 500) + (golongan * 1000)
     return tarif
 
 # Fungsi untuk memilih pintu masuk tol
-def pilih_pintu_masuk():
+def pilihPintuMasuk():
     print("    Silakan Pilih Pintu Masuk Tol:")
     pilihan(*pintu)
     try:
-        pintu_masuk = int(input())
-        while pintu_masuk < 1 or pintu_masuk > 5:
+        pintuMasuk = int(input())
+        while pintuMasuk < 1 or pintuMasuk > 5:
             print("    Silakan input angka antara 1 sampai 5.")
-            pintu_masuk = int(input("Masukkan pilihan: "))
-        return pintu_masuk
+            pintuMasuk = int(input("Masukkan pilihan: "))
+        return pintuMasuk
     except:
         print("    Input tidak valid. Silakan coba lagi.")
-        return pilih_pintu_masuk()  
+        return pilihPintuMasuk()  
 
 # Fungsi untuk memilih pintu keluar tol
-def pilih_pintu_keluar(pintu_masuk):
+def pilihPintuKeluar(pintuMasuk):
     print("\n    Silakan Pilih Pintu Keluar Tol:")
-    pilihan(*pintu, exclude=pintu_masuk)  # Tidak menampilkan pintu yang sama dengan pintu masuk
+    pilihan(*pintu, exclude=pintuMasuk)  # Tidak menampilkan pintu yang sama dengan pintu masuk
     try:
-        pintu_keluar = int(input())
+        pintuKeluar = int(input())
         
         # Validasi agar pintu keluar tidak sama dengan pintu masuk
-        while pintu_keluar < 1 or pintu_keluar > 5 or pintu_keluar == pintu_masuk:
-            if pintu_keluar == pintu_masuk:
-                print(f"    Pilih pintu keluar tol selain pintu {pintu[pintu_masuk - 1]}.")
+        while pintuKeluar < 1 or pintuKeluar > 5 or pintuKeluar == pintuMasuk:
+            if pintuKeluar == pintuMasuk:
+                print(f"    Pilih pintu keluar tol selain pintu {pintu[pintuMasuk - 1]}.")
             else:
                 print("    Silakan input angka antara 1 sampai 5.")
-            pintu_keluar = int(input("Tuliskan angka pilihan Anda: "))
-        return pintu_keluar
+            pintuKeluar = int(input("Tuliskan angka pilihan Anda: "))
+        return pintuKeluar
     except:
         print("     Input tidak valid. Silakan coba lagi.")
-        return pilih_pintu_keluar(pintu_masuk)
+        return pilihPintuKeluar(pintuMasuk)
 
 # Fungsi untuk menentukan jarak antara pintu masuk dan keluar
-def hitung_jarak(pintu_masuk, pintu_keluar):
-    if pintu_masuk == 1:
-        if pintu_keluar == 2:
+def hitungJarak(pintuMasuk, pintuKeluar):
+    if pintuMasuk == 1:
+        if pintuKeluar == 2:
             return 17.4
-        elif pintu_keluar == 3:
+        elif pintuKeluar == 3:
             return 66
-        elif pintu_keluar == 4:
+        elif pintuKeluar == 4:
             return 98.1
         else:
             return 75.9
-    elif pintu_masuk == 2:
-        if pintu_keluar == 1:
+    elif pintuMasuk == 2:
+        if pintuKeluar == 1:
             return 41.0
-        elif pintu_keluar == 3:
+        elif pintuKeluar == 3:
             return 65.6
-        elif pintu_keluar == 4:
+        elif pintuKeluar == 4:
             return 65.6
         else:
             return 17.5
-    elif pintu_masuk == 3:
-        if pintu_keluar == 1:
+    elif pintuMasuk == 3:
+        if pintuKeluar == 1:
             return 87.8
-        elif pintu_keluar == 2:
+        elif pintuKeluar == 2:
             return 50.3
-        elif pintu_keluar == 4:
+        elif pintuKeluar == 4:
             return 21.7
         else:
             return 17.5
-    elif pintu_masuk == 4:
-        if pintu_keluar == 1:
+    elif pintuMasuk == 4:
+        if pintuKeluar == 1:
             return 121.4
-        elif pintu_keluar == 2:
+        elif pintuKeluar == 2:
             return 87.2
-        elif pintu_keluar == 3:
+        elif pintuKeluar == 3:
             return 20.1
         else:
             return 39.2
     else:
-        if pintu_keluar == 1:
+        if pintuKeluar == 1:
             return 97.1
-        elif pintu_keluar == 2:
+        elif pintuKeluar == 2:
             return 62.8
-        elif pintu_keluar == 3:
+        elif pintuKeluar == 3:
             return 18.0
         else: 
             return 39.2
 
 # Fungsi untuk input jenis kendaraan
-def input_jenis_kendaraan():
+def inputJenisKendaraan():
     print("\n    ======================================================")
     print("                   DAFTAR GOLONGAN KENDARAAN   ")
     print("    ======================================================")
@@ -152,7 +157,7 @@ def input_jenis_kendaraan():
             print("    Input tidak valid. Harap masukkan angka yang sesuai daftar.")
 
 # Fungsi untuk menyimulasikan waktu yang diperlukan bagi kendaraan untuk menempuh jarak antar tol
-def simulasi_waktu_tempuh(jarak, golongan):
+def simulasiWaktuTempuh(jarak, golongan):
     kecepatan = {
         1: 100, # Golongan I
         2: 80, # Golongan II
@@ -171,29 +176,29 @@ def simulasi_waktu_tempuh(jarak, golongan):
     return jam, menit
 
 # Fungsi untuk input saldo
-def input_saldo():
+def inputSaldo():
     try:
         saldo = int(input("    Silahkan input saldo e-toll Anda: "))
         if saldo >= 0:
             return saldo
         else:
             print("    Input tidak valid. Saldo harus berupa angka positif.")
-            return input_saldo()
+            return inputSaldo()
     except:
         print("    Input tidak valid. Harap masukkan angka yang benar.")
-        return input_saldo()
+        return inputSaldo()
 
 # Fungsi untuk mengecek apakah saldo dari pengguna cukup
-def cek_saldo(saldo, biaya):
+def cekSaldo(saldo, biaya):
     return saldo >= biaya
 
 # Fungsi untuk menampilkan opsi isi ulang saldo dan memproses input pengguna
-def pilih_isi_saldo(saldo_awal, biaya):
+def pilihanSaldo(saldoAwal, biaya):
     print("\n    Saldo Anda tidak mencukupi. Pilih jumlah isi ulang:")
-    opsi_saldo = [50000, 100000, 200000, 300000, 500000, 1000000, biaya - saldo_awal]
+    opsi_saldo = [50000, 100000, 200000, 300000, 500000, 1000000, biaya - saldoAwal]
     
     for i, opsi in enumerate(opsi_saldo, 1):
-        if opsi == biaya - saldo_awal:
+        if opsi == biaya - saldoAwal:
             print(f"    [{i}] Isi saldo otomatis sebesar Rp {opsi} (sesuai tarif)")
         else:
             print(f"    [{i}] Rp {opsi}")
@@ -201,21 +206,21 @@ def pilih_isi_saldo(saldo_awal, biaya):
     try:
         pilihan = int(input("    Pilih opsi isi saldo: "))
         if 1 <= pilihan <= len(opsi_saldo):
-            saldo_awal += opsi_saldo[pilihan - 1]
-            print(f"    Isi saldo berhasil. Saldo saat ini: Rp {saldo_awal}")
-            return saldo_awal
+            saldoAwal += opsi_saldo[pilihan - 1]
+            print(f"    Isi saldo berhasil. Saldo saat ini: Rp {saldoAwal}")
+            return saldoAwal
         else:
             print("    Pilihan tidak valid. Silakan coba lagi.")
-            return pilih_isi_saldo(saldo_awal, biaya)
+            return pilihanSaldo(saldoAwal, biaya)
     except:
         print("    Input tidak valid. Silakan coba lagi.")
-        return pilih_isi_saldo(saldo_awal, biaya)
+        return pilihanSaldo(saldoAwal, biaya)
 
-def hitung_poin(tarif):
+def hitungPoin(tarif):
     # 1 poin = Rp 1.000
     return tarif // 1000
 
-def poin_diskon(poin, tarif):
+def poinDiskon(poin, tarif):
     print("\n    Anda memiliki", poin, "poin.")
     print("    Tukarkan poin untuk diskon:")
     print("    [1] 10 poin = Diskon 5%")
@@ -241,22 +246,22 @@ def poin_diskon(poin, tarif):
         return 0, poin
 
 # Fungsi untuk menampilkan ringkasan transaksi
-def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif, saldo_terakhir):
-    jam, menit = simulasi_waktu_tempuh(jarak, jenis_kendaraan)
+def tampilkanRingkasan(pintuMasuk, pintuKeluar, jenisKendaraan, jarak, tarif, saldoTerakhir):
+    jam, menit = simulasiWaktuTempuh(jarak, jenisKendaraan)
 
-    tampilan_ringkasan = [
+    tampilanRingkasan = [
         f"""
     ===============================
           RINGKASAN TRANSAKSI
     ===============================
-    Pintu Masuk     : {pintu[pintu_masuk - 1]}
-    Pintu Keluar    : {pintu[pintu_keluar - 1]}
-    Golongan Kendaraan : {jenis_kendaraan}
+    Pintu Masuk     : {pintu[pintuMasuk - 1]}
+    Pintu Keluar    : {pintu[pintuKeluar - 1]}
+    Golongan Kendaraan : {jenisKendaraan}
     Jarak Tempuh    : {jarak:.2f} km
     Waktu Tempuh    : {jam} jam {menit} menit
     -------------------------------
     Tarif Tol       : Rp {tarif}
-    Sisa Saldo      : Rp {saldo_terakhir}
+    Sisa Saldo      : Rp {saldoTerakhir}
     ===============================
     Terima kasih atas kunjungan Anda
     Selamat melanjutkan perjalanan!
@@ -264,7 +269,7 @@ def tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif
     """
     ]
 
-    for teks in tampilan_ringkasan:
+    for teks in tampilanRingkasan:
         for huruf in teks:
             print(huruf, end='', flush=True)
             time.sleep(0.03)  # Jeda 0,03 detik antar huruf
@@ -279,46 +284,46 @@ def main():
 
     while True:
         # Memilih pintu masuk tol
-        pintu_masuk = pilih_pintu_masuk()
+        pintuMasuk = pilihPintuMasuk()
         os.system('cls' if os.name == 'nt' else 'clear')
         
         # Memilih pintu keluar tol
-        pintu_keluar = pilih_pintu_keluar(pintu_masuk)
+        pintuKeluar = pilihPintuKeluar(pintuMasuk)
         os.system('cls' if os.name == 'nt' else 'clear')
         
         # Meminta input jenis kendaraan 
-        jenis_kendaraan = input_jenis_kendaraan()
+        jenisKendaraan = inputJenisKendaraan()
         os.system('cls' if os.name == 'nt' else 'clear')
         
         # Menghitung jarak antara pintu masuk dan keluar
-        jarak = hitung_jarak(pintu_masuk, pintu_keluar)
+        jarak = hitungJarak(pintuMasuk, pintuKeluar)
         os.system('cls' if os.name == 'nt' else 'clear')
         
         # Menghitung tarif berdasarkan jarak dan golongan kendaraan pengguna
-        tarif = tarif_tol(jarak, jenis_kendaraan)
+        tarif = tarifTol(jarak, jenisKendaraan)
 
         # Menggunakan poin untuk menerapkan diskon pada tarif tol
         if poin > 0:
-            diskon, poin = poin_diskon(poin, tarif)
+            diskon, poin = poinDiskon(poin, tarif)
             tarif -= diskon 
         else: 
             print("\n    Anda belum memiliki poin untuk ditukarkan.")
 
         # Input saldo e-toll pengguna
-        saldo = input_saldo()
+        saldo = inputSaldo()
         os.system('cls' if os.name == 'nt' else 'clear')
         
         # Cek saldo, jika saldo kurang, maka akan langsung ditawarkan opsi untuk isi ulang saldo
-        if not cek_saldo(saldo, tarif):
-            saldo = pilih_isi_saldo(saldo, tarif)
+        if not cekSaldo(saldo, tarif):
+            saldo = pilihanSaldo(saldo, tarif)
 
         # Menghitung total poin dari transaksi
-        transaksi_poin = hitung_poin(tarif)
+        transaksi_poin = hitungPoin(tarif)
         poin += transaksi_poin  # Tambahkan poin ke total poin pengguna
         os.system('cls' if os.name == 'nt' else 'clear')
         
         # Menampilkan ringkasan transaksi dengan sisa saldo pengguna
-        tampilkan_ringkasan(pintu_masuk, pintu_keluar, jenis_kendaraan, jarak, tarif, saldo - tarif)
+        tampilkanRingkasan(pintuMasuk, pintuKeluar, jenisKendaraan, jarak, tarif, saldo - tarif)
         os.system('cls' if os.name == 'nt' else 'clear')
 
         print(f"\n    Anda mendapatkan {transaksi_poin} poin dari transaksi ini.")

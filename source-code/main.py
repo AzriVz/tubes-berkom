@@ -195,6 +195,7 @@ def hitungPoin(tarif):
     # 1 poin = Rp 1.000
     return tarif // 1000
 
+# Fungsi untuk menghitung jumlah poin 
 def poinDiskon(poin, tarif):
     print("\n    Anda memiliki", poin, "poin.")
     print("    Tukarkan poin untuk diskon:")

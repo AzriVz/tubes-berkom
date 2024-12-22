@@ -90,11 +90,11 @@ def pilihPintuKeluar(pintuMasuk):
 
 # Fungsi untuk menentukan jarak antara pintu masuk dan keluar
 jarakPintu = [
-    [0.0, 68.7, 87.3, 203.5, 197.4],  # Cikampek Utama (Pintu 1)
-    [68.7, 0.0, 18.6, 74.5, 128.7],   # Palimanan (Pintu 2)
-    [87.3, 18.6, 0.0, 55.9, 110.1],   # Kanci (Pintu 3)
-    [203.5, 74.5, 55.9, 0.0, 54.2],   # Brebes Timur (Pintu 4)
-    [197.4, 128.7, 110.1, 54.2, 0.0]  # Pemalang (Pintu 5)
+    [0.0, 125.9, 137.5, 207.7, 257.4],  # Cikampek Utama (Pintu 1)
+    [126, 0.0, 45.1, 88.9, 138.6],   # Palimanan (Pintu 2)
+    [164.1, 78.8, 0.0, 37.8, 119.9],   # Kanci (Pintu 3)
+    [203.5, 81.7, 66.7, 0.0, 56.2],   # Brebes Timur (Pintu 4)
+    [257.1, 135.3, 120.2, 39.0, 0.0]  # Pemalang (Pintu 5)
 ]
 
 def hitungJarak(pintuMasuk, pintuKeluar):

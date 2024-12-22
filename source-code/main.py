@@ -40,7 +40,7 @@ import os
 import time
 
 # Daftar pintu tol yang tersedia
-pintu = ["Cikampek", "Sadang", "Padalarang", "Cileunyi", "Pasteur"]
+pintu = ["Cikampek Utama", "Palimanan", "Kanci", "Brebes Timur", "Pemalang"]
 
 # Fungsi untuk menampilkan daftar pilihan pintu tol
 def pilihan(pintu1, pintu2, pintu3, pintu4, pintu5, exclude=None):
@@ -90,11 +90,11 @@ def pilihPintuKeluar(pintuMasuk):
 
 # Fungsi untuk menentukan jarak antara pintu masuk dan keluar
 jarakPintu = [
-    [0, 17.4, 66, 98.1, 75.9],  # Pintu 1
-    [41.0, 0, 65.6, 85.5, 17.5],  # Pintu 2
-    [87.8, 50.3, 0, 42.2, 19.3],  # Pintu 3
-    [121.4, 87.2, 20.1, 0, 39.2],  # Pintu 4
-    [97.1, 62.8, 18.0, 39.2, 0]   # Pintu 5
+    [0.0, 68.7, 87.3, 203.5, 197.4],  # Cikampek Utama (Pintu 1)
+    [68.7, 0.0, 18.6, 74.5, 128.7],   # Palimanan (Pintu 2)
+    [87.3, 18.6, 0.0, 55.9, 110.1],   # Kanci (Pintu 3)
+    [203.5, 74.5, 55.9, 0.0, 54.2],   # Brebes Timur (Pintu 4)
+    [197.4, 128.7, 110.1, 54.2, 0.0]  # Pemalang (Pintu 5)
 ]
 
 def hitungJarak(pintuMasuk, pintuKeluar):

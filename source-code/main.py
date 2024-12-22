@@ -1,6 +1,7 @@
 # Author : Kelompok 7
-# Tanggal Pengerjaan : - Tugas Besar 1 (3-10 November 2024)
-#                      - Tugas Besar 2 (7-16 Desember 2024)
+# Tanggal Pengerjaan : 
+# - Tugas Besar 1 (3-10 November 2024)                 
+# - Tugas Besar 2 (7-22 Desember 2024)
 
 # Program Manajemen Sistem Pintu Tol Lanjutan
 # Deskripsi : Menghitung tarif tol berdasarkan jarak dan golongan kendaraan dari pintu masuk gerbang tol dan pintu keluar gerbang tol yang diinput oleh user
@@ -26,7 +27,6 @@
 # simulasiWaktuTempuh: fungsi untuk mensimulasikan waktu tempuh kendaraan berdasarkan jarak dan jenis kendaraan
 # tampilkanRingkasan: prosedur untuk menampilkan ringkasan transaksi
 # main: prosedur utama untuk mengelola alur program
-
 
 # Perubahan yang dilakukan
 # - Perbaikan alur logika algoritma
@@ -87,52 +87,26 @@ def pilihPintuKeluar(pintuMasuk):
         return pilihPintuKeluar(pintuMasuk)
 
 # Fungsi untuk menentukan jarak antara pintu masuk dan keluar
+jarakPintu = [
+    [0, 17.4, 66, 98.1, 75.9],  # Pintu 1
+    [41.0, 0, 65.6, 85.5, 17.5],  # Pintu 2
+    [87.8, 50.3, 0, 42.2, 19.3],  # Pintu 3
+    [121.4, 87.2, 20.1, 0, 39.2],  # Pintu 4
+    [97.1, 62.8, 18.0, 39.2, 0]   # Pintu 5
+]
+
 def hitungJarak(pintuMasuk, pintuKeluar):
-    if pintuMasuk == 1:
-        if pintuKeluar == 2:
-            return 17.4
-        elif pintuKeluar == 3:
-            return 66
-        elif pintuKeluar == 4:
-            return 98.1
-        else:
-            return 75.9
-    elif pintuMasuk == 2:
-        if pintuKeluar == 1:
-            return 41.0
-        elif pintuKeluar == 3:
-            return 65.6
-        elif pintuKeluar == 4:
-            return 65.6
-        else:
-            return 17.5
-    elif pintuMasuk == 3:
-        if pintuKeluar == 1:
-            return 87.8
-        elif pintuKeluar == 2:
-            return 50.3
-        elif pintuKeluar == 4:
-            return 21.7
-        else:
-            return 17.5
-    elif pintuMasuk == 4:
-        if pintuKeluar == 1:
-            return 121.4
-        elif pintuKeluar == 2:
-            return 87.2
-        elif pintuKeluar == 3:
-            return 20.1
-        else:
-            return 39.2
-    else:
-        if pintuKeluar == 1:
-            return 97.1
-        elif pintuKeluar == 2:
-            return 62.8
-        elif pintuKeluar == 3:
-            return 18.0
-        else: 
-            return 39.2
+    # Loop melalui indeks baris
+    for i in range(len(jarakPintu)):
+        if i + 1 == pintuMasuk:  # PintuMasuk cocok dengan indeks baris + 1
+            # Loop melalui indeks kolom
+            for j in range(len(jarakPintu[i])):
+                if j + 1 == pintuKeluar:  # PintuKeluar cocok dengan indeks kolom + 1
+                    return jarakPintu[i][j]  # Kembalikan nilai berdasarkan jarak yang sesuai
+    # Jika tidak ditemukan
+    print(f"Jarak antara pintu {pintuMasuk} dan {pintuKeluar} tidak ditemukan. Silahkan ulangi lagi")
+    return -1.0
+
 
 # Fungsi untuk input jenis kendaraan
 def inputJenisKendaraan():
@@ -172,7 +146,6 @@ def simulasiWaktuTempuh(jarak, golongan):
     # Konversi ke jam dan menit
     jam = int(waktu_tempuh)
     menit = int((waktu_tempuh - jam) * 60)
-
     return jam, menit
 
 # Fungsi untuk input saldo

@@ -8,6 +8,7 @@
 
 # KAMUS
 # pintu: array of string
+# jarakPintu: array of array of float
 # jenisKendaraan, pintuMasuk, pintuKeluar, pilihan, saldoAwal, biaya: integer
 # daftarPintu, opsi_saldo: array of integer
 # saldo, jarak, tarif, saldoTerakhir: float
@@ -17,16 +18,17 @@
 # tarifTol: fungsi untuk menghitung tarif tol berdasarkan jarak dan golongan kendaraan
 # pilihPintuMasuk: fungsi untuk memilih pintu masuk tol
 # pilihPintuKeluar: fungsi untuk memilih pintu keluar tol
-# hitungJarak: fungsi untuk menentukan jarak antara pintu masuk dan pintu keluar
+# hitungJarak: fungsi untuk menentukan jarak antara pintu masuk dan pintu keluar menggunakan for loop
 # inputJenisKendaraan: fungsi untuk memasukkan jenis kendaraan
+# simulasiWaktuTempuh: fungsi untuk mensimulasikan waktu tempuh kendaraan berdasarkan jarak dan jenis kendaraan
 # inputSaldo: fungsi untuk memasukkan saldo e-toll
 # cekSaldo: fungsi untuk mengecek apakah saldo mencukupi
 # pilihanSaldo: prosedur untuk menampilkan opsi isi ulang saldo dan memproses input pengguna
 # hitungPoin: fungsi untuk menghitung poin berdasarkan tarif transaksi
 # poinDiskon: fungsi untuk memberikan opsi penukaran poin untuk diskon tarif tol
-# simulasiWaktuTempuh: fungsi untuk mensimulasikan waktu tempuh kendaraan berdasarkan jarak dan jenis kendaraan
 # tampilkanRingkasan: prosedur untuk menampilkan ringkasan transaksi
 # main: prosedur utama untuk mengelola alur program
+
 
 # Perubahan yang dilakukan
 # - Perbaikan alur logika algoritma

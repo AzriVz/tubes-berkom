@@ -11,7 +11,7 @@
 
 ## General Information
 
-Proyek ini dirancang untuk memenuhi Tugas Besar 1 Mata Kuliah WI1102 Berpikir Komputasional.
+Proyek ini dirancang untuk memenuhi Tugas Besar 1 dan 2 Mata Kuliah WI1102 Berpikir Komputasional.
 - Ishak Palentino Napitupulu (19624094)
 - Muhammad Arkan Dhaifullah (19624113)
 - Bryan Pratama Putra Hendra (19624124)
